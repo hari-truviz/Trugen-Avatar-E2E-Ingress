@@ -6,17 +6,17 @@ import (
 	CustomTypes "infra-ingress/customtypes"
 	"io"
 	"net/http"
+	"os"
 )
 
 func IsRead() bool {
-	return true // TODO: DELETE HERE
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "https://api.runpod.ai/v2/ci5caegc1sso6c/health", nil)
+	req, err := http.NewRequest("GET", "https://api.runpod.ai/v2/"+os.Getenv("RUNPOD_ENDPOINT_ID")+"/health", nil)
 	if err != nil {
 		fmt.Println("Error creating HTTP Request")
 		return false
 	}
-	req.Header.Add("Authorization", "Bearer rpa_QASU7UXAMTFJA5HHY4H6GPCU76TVT3NHEUHQX18W1x86sx")
+	req.Header.Add("Authorization", "Bearer "+os.Getenv("RUNPOD_API_KEY"))
 	resp, err := client.Do(req)
 	if err != nil {
 		fmt.Println("Error getting response")
