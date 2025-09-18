@@ -102,6 +102,14 @@ func main() {
 		w.Write([]byte("Trugen Infra Ingress running."))
 		w.WriteHeader(http.StatusOK)
 	})
+	// Register infra health
+	http.HandleFunc("/infra", func(w http.ResponseWriter, r *http.Request) {
+		var statusCode int = http.StatusServiceUnavailable
+		if Utilities.IsRead() {
+			statusCode = http.StatusOK
+		}
+		w.WriteHeader(statusCode)
+	})
 	fmt.Println("Web Socket Server is running on :8080/ws")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
