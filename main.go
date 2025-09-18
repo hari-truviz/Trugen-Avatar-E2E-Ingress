@@ -8,7 +8,6 @@ import (
 	Utilities "infra-ingress/utilities/infrastructure/runpod"
 	"log"
 	"net/http"
-	"sync"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -20,7 +19,7 @@ var upgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-func handleConnection(conn *websocket.Conn, rq *RequestQueue) {
+func handleConnection(conn *websocket.Conn, rq *CustomTypes.RequestQueue) {
 	for {
 		// Convert bytes[] to string to be unmarshelded and added to indexMap
 		msgType, payload, err := conn.ReadMessage()
@@ -38,9 +37,9 @@ func handleConnection(conn *websocket.Conn, rq *RequestQueue) {
 			fmt.Println(err)
 		}
 		// Add conversation request to request queue
-		currentPos := rq.Enqueue(Request{
-			conn: conn,
-			req:  convRequest,
+		currentPos := rq.Enqueue(CustomTypes.Request{
+			Conn: conn,
+			Req:  convRequest,
 		})
 		// Send acknowledgement message
 		var ackMsg CustomTypes.Acknowledgment = CustomTypes.Acknowledgment{
@@ -68,64 +67,10 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	handleConnection(conn, rq)
 }
 
-// Request
-type Request struct {
-	conn *websocket.Conn
-	req  CustomTypes.ConversationRequest
-}
-
-// Request queue
-type RequestQueue struct {
-	mu       sync.Mutex
-	queue    *list.List
-	indexMap map[*websocket.Conn][]*list.Element
-}
-
-func (rq *RequestQueue) Enqueue(req Request) int {
-	rq.mu.Lock()
-	defer rq.mu.Unlock()
-	elem := rq.queue.PushBack(req)
-	rq.indexMap[req.conn] = append(rq.indexMap[req.conn], elem)
-	return rq.queue.Len()
-}
-
-func (rq *RequestQueue) Dequeue() (Request, bool) {
-	rq.mu.Lock()
-	defer rq.mu.Unlock()
-	front := rq.queue.Front()
-	if front == nil {
-		return Request{}, false
-	}
-	req := front.Value.(Request)
-	rq.queue.Remove(front)
-	// also clean up from indexMap
-	elems := rq.indexMap[req.conn]
-	for i, e := range elems {
-		if e == front {
-			rq.indexMap[req.conn] = append(elems[:i], elems[i+1:]...)
-			break
-		}
-	}
-	if len(rq.indexMap[req.conn]) == 0 {
-		delete(rq.indexMap, req.conn)
-	}
-	return req, true
-}
-
-func (rq *RequestQueue) RemoveByConnection(conn *websocket.Conn) {
-	rq.mu.Lock()
-	defer rq.mu.Unlock()
-	if elems, ok := rq.indexMap[conn]; ok {
-		for _, e := range elems {
-			rq.queue.Remove(e)
-		}
-		delete(rq.indexMap, conn)
-	}
-}
-
-var rq = &RequestQueue{
-	queue:    list.New(),
-	indexMap: make(map[*websocket.Conn][]*list.Element),
+// Instantiate Request Queue object
+var rq = &CustomTypes.RequestQueue{
+	Queue:    list.New(),
+	IndexMap: make(map[*websocket.Conn][]*list.Element),
 }
 
 // Main entrypoint
@@ -144,9 +89,9 @@ func main() {
 				req, exist := rq.Dequeue()
 				if exist {
 					// Post the request to runpod
-					Utilities.PostJob(req.req)
+					Utilities.PostJob(req.Req)
 				}
-				fmt.Printf("Number of requests in the queue: %v\n", rq.queue.Len())
+				fmt.Printf("Number of requests in the queue: %v\n", rq.Queue.Len())
 			}
 		}
 	}()
