@@ -1,6 +1,7 @@
 package Utilities
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	CustomTypes "infra-ingress/customtypes"
@@ -9,10 +10,15 @@ import (
 	"os"
 )
 
-func IsRead() bool {
+func PostJob(convReq CustomTypes.ConversationRequest) bool {
 	client := &http.Client{}
-	URL := "https://api.runpod.ai/v2/" + os.Getenv("RUNPOD_ENDPOINT_ID") + "/health"
-	req, err := http.NewRequest("GET", URL, nil)
+	convReqBytes, err := json.Marshal(convReq)
+	if err != nil {
+		fmt.Println("Unable to parse json")
+		return false
+	}
+	URL := "https://api.runpod.ai/v2/" + os.Getenv("RUNPOD_ENDPOINT_ID") + "/run"
+	req, err := http.NewRequest("POST", URL, bytes.NewBuffer(convReqBytes))
 	if err != nil {
 		fmt.Println("Error creating HTTP Request")
 		return false
@@ -25,15 +31,6 @@ func IsRead() bool {
 	}
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("Error ready body")
-		return false
-	}
-	var healthResponse = &CustomTypes.Health{}
-	err = json.Unmarshal(body, healthResponse)
-	if err != nil {
-		fmt.Printf("Error parsing response: %s\n", err)
-		return false
-	}
-	return healthResponse.Workers.Ready > 0
+	fmt.Println(string(body))
+	return true
 }

@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
+	"github.com/joho/godotenv"
 )
 
 var upgrader = websocket.Upgrader{
@@ -22,7 +23,7 @@ var upgrader = websocket.Upgrader{
 func handleConnection(conn *websocket.Conn, rq *RequestQueue) {
 	for {
 		// Convert bytes[] to string to be unmarshelded and added to indexMap
-		_, payload, err := conn.ReadMessage()
+		msgType, payload, err := conn.ReadMessage()
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -37,13 +38,18 @@ func handleConnection(conn *websocket.Conn, rq *RequestQueue) {
 			fmt.Println(err)
 		}
 		// Add conversation request to request queue
-		rq.Enqueue(Request{
+		currentPos := rq.Enqueue(Request{
 			conn: conn,
 			req:  convRequest,
 		})
 		// Send acknowledgement message
-		var ackMsg string = "Conversation request added into the queue."
-		err = conn.WriteMessage(1, []byte(ackMsg))
+		var ackMsg CustomTypes.Acknowledgment = CustomTypes.Acknowledgment{
+			Message:         "new request accepted",
+			CurrentPosition: currentPos,
+			StatusCode:      201,
+		}
+		ack, err := json.Marshal(ackMsg)
+		err = conn.WriteMessage(msgType, ack)
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -75,11 +81,12 @@ type RequestQueue struct {
 	indexMap map[*websocket.Conn][]*list.Element
 }
 
-func (rq *RequestQueue) Enqueue(req Request) {
+func (rq *RequestQueue) Enqueue(req Request) int {
 	rq.mu.Lock()
 	defer rq.mu.Unlock()
 	elem := rq.queue.PushBack(req)
 	rq.indexMap[req.conn] = append(rq.indexMap[req.conn], elem)
+	return rq.queue.Len()
 }
 
 func (rq *RequestQueue) Dequeue() (Request, bool) {
@@ -123,8 +130,12 @@ var rq = &RequestQueue{
 
 // Main entrypoint
 func main() {
+	err := godotenv.Load(".local.env")
+	if err != nil {
+		log.Fatal("Error loading .env file", err)
+	}
 	// Start a ticker to check the Runpod if it's ready
-	ticker := time.NewTicker(1 * time.Second)
+	ticker := time.NewTicker(3 * time.Second)
 	go func() {
 		for range ticker.C {
 			// Check if Infrastructure is ready to accept new requests
@@ -132,7 +143,8 @@ func main() {
 				// Pick the next item from the requestMap and post to runpod
 				req, exist := rq.Dequeue()
 				if exist {
-					fmt.Println(req.req)
+					// Post the request to runpod
+					Utilities.PostJob(req.req)
 				}
 				fmt.Printf("Number of requests in the queue: %v\n", rq.queue.Len())
 			}

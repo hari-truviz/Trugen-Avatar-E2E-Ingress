@@ -174,3 +174,9 @@ type TTS struct {
 	Gender           string `json:"gender"`
 	FallbackVoiceID  string `json:"fallback_voice_id"`
 }
+
+type Acknowledgment struct {
+	Message         string `json:"message"`
+	CurrentPosition int    `json:"position"`
+	StatusCode      int    `json:"status"`
+}
