@@ -8,11 +8,39 @@ import (
 	Utilities "infra-ingress/utilities/infrastructure/runpod"
 	"log"
 	"net/http"
+	"os"
+	"strings"
 	"time"
 
 	"github.com/gorilla/websocket"
 	"github.com/joho/godotenv"
+	"github.com/rs/cors"
 )
+
+// Handle avatar info route
+func handleAvatarInfo(w http.ResponseWriter, r *http.Request) {
+	avatarID := r.URL.Query().Get("id")
+	userName := r.URL.Query().Get("userName")
+	// Read landing avatars config json
+	data, err := os.ReadFile("static/landing-page-avatars.json")
+	if err != nil {
+		fmt.Println("Unable to read file: %s", err)
+	}
+	var avatars = &CustomTypes.AllAvatars{}
+	json.Unmarshal(data, avatars)
+	// Filter the avatars
+	for _, item := range avatars.Avatars {
+		if item.AvatarID == avatarID {
+			// Replace <USER_NAME> and <AVATAR_ID> tags
+			item.PersonaPrompt = strings.ReplaceAll(item.PersonaPrompt, "<USER_NAME>", userName)
+			item.PersonaPrompt = strings.ReplaceAll(item.PersonaPrompt, "<AVATAR_ID>", item.PersonaName)
+			avatarJson, _ := json.Marshal(item)
+			w.Write(avatarJson)
+			w.WriteHeader(http.StatusOK)
+		}
+	}
+	w.WriteHeader(http.StatusNotFound)
+}
 
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
@@ -95,15 +123,18 @@ func main() {
 			}
 		}
 	}()
+	mux := http.NewServeMux()
+	// Register Avatar Info route
+	mux.HandleFunc("GET /avatars/", handleAvatarInfo)
 	// Register websocket server
-	http.HandleFunc("/ws", handleWebSocket)
+	mux.HandleFunc("/ws", handleWebSocket)
 	// Register server health endpoint
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Trugen Infra Ingress running."))
 		w.WriteHeader(http.StatusOK)
 	})
 	// Register infra health
-	http.HandleFunc("/infra", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/infra", func(w http.ResponseWriter, r *http.Request) {
 		var statusCode int = http.StatusServiceUnavailable
 		if Utilities.IsRead() {
 			statusCode = http.StatusOK
@@ -111,7 +142,8 @@ func main() {
 		w.WriteHeader(statusCode)
 	})
 	fmt.Println("Web Socket Server is running on :8080/ws")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	handler := cors.AllowAll().Handler(mux)
+	if err := http.ListenAndServe(":8080", handler); err != nil {
 		log.Fatal(err)
 	}
 }

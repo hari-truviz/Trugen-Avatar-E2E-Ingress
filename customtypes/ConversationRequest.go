@@ -180,3 +180,7 @@ type Acknowledgment struct {
 	CurrentPosition int    `json:"position"`
 	StatusCode      int    `json:"status"`
 }
+
+type AllAvatars struct {
+	Avatars []Avatar `json:"avatars"`
+}
