@@ -159,7 +159,7 @@ func main() {
 		w.WriteHeader(statusCode)
 	})
 
-	mux.HandleFunc("/demo/waitlist", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/landing/waitlist", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreateWaitlist(w, r)
 			return
@@ -167,7 +167,7 @@ func main() {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
 
-	mux.HandleFunc("/demo/demouser", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/landing/demouser", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreateDemoUser(w, r)
 			return
@@ -175,7 +175,7 @@ func main() {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
 
-	mux.HandleFunc("/demo/demofeedback", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/landing/demofeedback", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreateDemoFeedback(w, r)
 			return
@@ -183,7 +183,7 @@ func main() {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
 
-	mux.HandleFunc("/demo/contact", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/landing/contact", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreateContact(w, r)
 			return

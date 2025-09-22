@@ -91,8 +91,9 @@ func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
 // HandleCreateWaitlist creates a new waitlist entry
 func HandleCreateWaitlist(w http.ResponseWriter, r *http.Request) {
 	var waitlist struct {
-		Name  string `json:"name"`
-		Email string `json:"email"`
+		Name    string  `json:"name"`
+		Email   string  `json:"email"`
+		Company *string `json:"company"`
 	}
 
 	// Decode request body
@@ -103,21 +104,22 @@ func HandleCreateWaitlist(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Validation
-	if waitlist.Email == "" {
-		http.Error(w, "Email is required", http.StatusBadRequest)
-		return
-	}
-	// Validation
 	if waitlist.Name == "" {
 		http.Error(w, "Name is required", http.StatusBadRequest)
 		return
 	}
 
+	// Validation
+	if waitlist.Email == "" {
+		http.Error(w, "Email is required", http.StatusBadRequest)
+		return
+	}
+
 	query := `
         INSERT INTO waitlists (
-            id, name, email, created_at
+            id, name, email, created_at, company
         ) VALUES (
-            gen_random_uuid(), $1, $2, CURRENT_TIMESTAMP
+            gen_random_uuid(), $1, $2, CURRENT_TIMESTAMP, $3
         ) RETURNING id`
 
 	var id string
@@ -125,6 +127,7 @@ func HandleCreateWaitlist(w http.ResponseWriter, r *http.Request) {
 		query,
 		waitlist.Name,
 		waitlist.Email,
+		waitlist.Company,
 	).Scan(&id)
 
 	if err != nil {
