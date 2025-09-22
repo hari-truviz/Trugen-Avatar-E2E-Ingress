@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	CustomTypes "infra-ingress/customtypes"
+	DBHelpers "infra-ingress/utilities/db_helpers"
 	Utilities "infra-ingress/utilities/infrastructure/runpod"
 	"log"
 	"net/http"
@@ -144,6 +145,39 @@ func main() {
 		}
 		w.WriteHeader(statusCode)
 	})
+
+	mux.HandleFunc("/demo/waitlist", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreateWaitlist(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+
+	mux.HandleFunc("/demo/demouser", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreateDemoUser(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+
+	mux.HandleFunc("/demo/demofeedback", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreateDemoFeedback(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+
+	mux.HandleFunc("/demo/contact", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreateContact(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+
 	fmt.Println("Web Socket Server is running on :8080/ws")
 	handler := cors.AllowAll().Handler(mux)
 	if err := http.ListenAndServe(":8080", handler); err != nil {
