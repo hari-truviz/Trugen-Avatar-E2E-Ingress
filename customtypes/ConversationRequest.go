@@ -164,12 +164,14 @@ type LLM struct {
 
 type TTS struct {
 	Provider         string `json:"provider"`
+	ModelID          string `json:"model_id"`
 	Language         string `json:"language"`
 	VoiceID          string `json:"voice_id"`
-	ModelID          string `json:"model_id"`
 	Pitch            int    `json:"pitch"`
 	EffectsProfileID string `json:"effects_profile_id"`
 	SpeakingRate     int    `json:"speaking_rate"`
+	Stability        string `json:"stability"`
+	SimilarityBoost  string `json:"similarity_boost"`
 	SampleRate       int    `json:"sample_rate"`
 	Encoding         string `json:"encoding"`
 	Gender           string `json:"gender"`
