@@ -3,6 +3,7 @@ package DBHelpers
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -120,13 +121,18 @@ func HandleCreateWaitlist(w http.ResponseWriter, r *http.Request) {
 
 // HandleCreateDemoUser creates a new demo user entry
 func HandleCreateDemoUser(w http.ResponseWriter, r *http.Request) {
-	var demouser struct {
+	if r.Body == nil {
+		fmt.Println("Empty request body")
+		http.Error(w, "Empty request body", http.StatusBadRequest)
+		return
+	}
+	defer r.Body.Close()
+	demouser := &struct {
 		Name  string `json:"name"`
 		Email string `json:"email"`
-	}
-
+	}{}
 	// Decode request body
-	if err := json.NewDecoder(r.Body).Decode(&demouser); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(demouser); err != nil {
 		log.Printf("Error decoding request body: %v", err)
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
@@ -143,7 +149,6 @@ func HandleCreateDemoUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Email is required", http.StatusBadRequest)
 		return
 	}
-
 	query := `
         INSERT INTO demo_users (
             id, name, email, created_at
@@ -157,6 +162,7 @@ func HandleCreateDemoUser(w http.ResponseWriter, r *http.Request) {
 		demouser.Name,
 		demouser.Email,
 	).Scan(&id)
+	fmt.Println("HERE")
 
 	if err != nil {
 		log.Printf("Error creating demouser: %v", err)

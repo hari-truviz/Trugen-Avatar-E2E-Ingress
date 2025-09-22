@@ -112,7 +112,7 @@ func main() {
 		log.Fatal("Error loading .env file", err)
 	}
 	// Start a ticker to check the Runpod if it's ready
-	ticker := time.NewTicker(3 * time.Second)
+	ticker := time.NewTicker(30 * time.Second)
 	go func() {
 		for range ticker.C {
 			// Check if Infrastructure is ready to accept new requests
