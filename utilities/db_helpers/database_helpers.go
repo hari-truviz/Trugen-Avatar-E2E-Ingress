@@ -6,9 +6,31 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	_ "github.com/lib/pq" // registers "postgres"
 )
 
 var DB *sql.DB
+
+// InitDB initializes the database connection
+func InitDB(connectionString string) error {
+	var err error
+	DB, err = sql.Open("postgres", connectionString)
+	if err != nil {
+		log.Printf("Error opening database: %v", err)
+		return err
+	}
+
+	log.Println("Attempting to ping database...")
+	err = DB.Ping()
+	if err != nil {
+		log.Printf("Error pinging database: %v", err)
+		return err
+	}
+
+	log.Println("Database connection established successfully.")
+	return nil
+}
 
 // HandleCreateDemoFeedback creates a new demo feedback entry
 func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
@@ -162,7 +184,6 @@ func HandleCreateDemoUser(w http.ResponseWriter, r *http.Request) {
 		demouser.Name,
 		demouser.Email,
 	).Scan(&id)
-	fmt.Println("HERE")
 
 	if err != nil {
 		log.Printf("Error creating demouser: %v", err)

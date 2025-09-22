@@ -111,6 +111,19 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file", err)
 	}
+
+	// Initialize database
+	dbDSN := os.Getenv("API_DB_DNSDETAILS")
+	err = DBHelpers.InitDB(dbDSN)
+	if err != nil {
+		log.Fatal("Failed to connect to database:", err)
+	}
+
+	err = DBHelpers.DB.Ping()
+	if err != nil {
+		log.Fatalf("Failed to ping database: %v", err)
+	}
+
 	// Start a ticker to check the Runpod if it's ready
 	ticker := time.NewTicker(30 * time.Second)
 	go func() {
