@@ -39,8 +39,8 @@ type Avatar struct {
 	PrevAudioDuration      int                 `json:"prev_audio_duration"`
 	Config                 Config              `json:"config"`
 	KnowledgeBase          interface{}         `json:"knowledge_base"`
-	McpServers             interface{}         `json:"mcp_servers"`
-	Tools                  interface{}         `json:"tools"`
+	McpServers             []McpServer         `json:"mcp_servers"`
+	Tools                  []Tool              `json:"tools"`
 }
 
 type Memory struct {
@@ -166,6 +166,7 @@ type TTS struct {
 	Provider         string `json:"provider"`
 	Language         string `json:"language"`
 	VoiceID          string `json:"voice_id"`
+	ModelID          string `json:"model_id"`
 	Pitch            int    `json:"pitch"`
 	EffectsProfileID string `json:"effects_profile_id"`
 	SpeakingRate     int    `json:"speaking_rate"`
@@ -173,6 +174,63 @@ type TTS struct {
 	Encoding         string `json:"encoding"`
 	Gender           string `json:"gender"`
 	FallbackVoiceID  string `json:"fallback_voice_id"`
+}
+
+//
+// MCP servers and tools (added concrete structs to match JSON shape)
+//
+
+type McpServer struct {
+	Type           string                 `json:"type"`
+	Name           string                 `json:"name"`
+	Params         map[string]interface{} `json:"params"`
+	CacheToolsList bool                   `json:"cache_tools_list"`
+	EventMessages  EventMessages          `json:"event_messages"`
+}
+
+type EventMessages struct {
+	OnStart   *SimpleMessage `json:"on_start,omitempty"`
+	OnSuccess *SimpleMessage `json:"on_success,omitempty"`
+	OnDelay   *DelayMessage  `json:"on_delay,omitempty"`
+	OnError   *SimpleMessage `json:"on_error,omitempty"`
+}
+
+type SimpleMessage struct {
+	Message string `json:"message"`
+}
+
+type DelayMessage struct {
+	Delay   int    `json:"delay"`
+	Message string `json:"message"`
+}
+
+//
+// Tools
+//
+
+type Tool struct {
+	Name          string            `json:"name"`
+	Description   string            `json:"description"`
+	Arguments     []ToolArgument    `json:"arguments"`
+	RequestConfig RequestConfig     `json:"request_config"`
+	EventMessages ToolEventMessages `json:"event_messages"`
+}
+
+type ToolArgument struct {
+	Name        string `json:"name"`
+	Type        string `json:"type"`
+	Description string `json:"description"`
+}
+
+type RequestConfig struct {
+	Method  string            `json:"method"`
+	URL     string            `json:"url"`
+	Headers map[string]string `json:"headers"`
+}
+
+type ToolEventMessages struct {
+	OnDelay *DelayMessage  `json:"on_delay,omitempty"`
+	OnError *SimpleMessage `json:"on_error,omitempty"`
 }
 
 type Acknowledgment struct {
