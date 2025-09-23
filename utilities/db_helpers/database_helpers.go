@@ -34,12 +34,12 @@ func InitDB(connectionString string) error {
 
 // HandleCreateDemoFeedback creates a new demo feedback entry
 func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
-	var feedback struct {
+	feedback := &struct {
 		ConversationID string `json:"conversation_id"`
 		Email          string `json:"email"`
 		Feedback       string `json:"feedback"`
 		Rating         int    `json:"rating"`
-	}
+	}{}
 
 	// Decode request body
 	if err := json.NewDecoder(r.Body).Decode(feedback); err != nil {
