@@ -67,7 +67,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -302,7 +302,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -537,7 +537,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -772,7 +772,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1007,7 +1007,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1242,7 +1242,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1477,7 +1477,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 600,
+        "max_call_duration": 120,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
