@@ -190,12 +190,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -218,12 +221,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -419,12 +425,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -447,12 +456,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -648,12 +660,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -676,12 +691,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -877,12 +895,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -905,12 +926,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -1106,12 +1130,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -1134,12 +1161,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -1335,12 +1365,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -1363,12 +1396,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
@@ -1564,12 +1600,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for weather data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve weather data"
+              "message": "Ah, I couldn't get the weather Information"
             }
           }
         },
@@ -1592,12 +1631,15 @@
             }
           },
           "event_messages": {
+            "on_start": {
+              "message": "Yeah. I am checking..."
+            },
             "on_delay": {
               "delay": 1,
-              "message": "Waiting for stock price data..."
+              "message": "Still Checking..."
             },
             "on_error": {
-              "message": "Failed to retrieve stock price data"
+              "message": "Ah, I couldn't get the Stock Information"
             }
           }
         }
