@@ -209,6 +209,27 @@ func main() {
 		}
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
+	mux.HandleFunc("/preview/user", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreatePreviewUser(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/preview/conversation", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreatePreviewConversation(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/preview/invitekey", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreatePreviewKey(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
 
 	fmt.Println("Web Socket Server is running on :8080/ws")
 	handler := cors.AllowAll().Handler(mux)

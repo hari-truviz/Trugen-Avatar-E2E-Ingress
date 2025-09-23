@@ -202,6 +202,221 @@ func HandleCreateDemoUser(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// HandleCreatePreviewUser creates a new preview user entry
+func HandleCreatePreviewUser(w http.ResponseWriter, r *http.Request) {
+	if r.Body == nil {
+		fmt.Println("Empty request body")
+		http.Error(w, "Empty request body", http.StatusBadRequest)
+		return
+	}
+	defer r.Body.Close()
+	previewuser := &struct {
+		Name      string `json:"name"`
+		Email     string `json:"email"`
+		InviteKey string `json:"invitekey"`
+	}{}
+	// Decode request body
+	if err := json.NewDecoder(r.Body).Decode(previewuser); err != nil {
+		log.Printf("Error decoding request body: %v", err)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.Name == "" {
+		http.Error(w, "Name is required", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.Email == "" {
+		http.Error(w, "Email is required", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.InviteKey == "" {
+		http.Error(w, "Invite Key is required", http.StatusBadRequest)
+		return
+	}
+
+	var (
+		uuid string
+	)
+
+	queryKey := `
+		SELECT id 
+		FROM preview_invite_keys 
+		WHERE id = $1 AND is_active = true
+	`
+	errFetch := DB.QueryRow(queryKey, previewuser.InviteKey).Scan(&uuid)
+	if errFetch != nil {
+		http.Error(w, "Not a valid Invite Key", http.StatusNotFound)
+		return
+	}
+
+	query := `
+        INSERT INTO demo_users (
+            id, name, email, invite_key, created_at
+        ) VALUES (
+            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP
+        ) RETURNING id`
+
+	var id string
+	err := DB.QueryRow(
+		query,
+		previewuser.Name,
+		previewuser.Email,
+		previewuser.InviteKey,
+	).Scan(&id)
+
+	if err != nil {
+		log.Printf("Error creating preview user: %v", err)
+		http.Error(w, "Failed to create preview user", http.StatusInternalServerError)
+		return
+	}
+
+	// Respond
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":      id,
+		"message": "Preview user submitted successfully",
+	})
+}
+
+// HandleCreatePreviewConversation creates a new preview user conversation
+func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
+	if r.Body == nil {
+		fmt.Println("Empty request body")
+		http.Error(w, "Empty request body", http.StatusBadRequest)
+		return
+	}
+	defer r.Body.Close()
+	previewuser := &struct {
+		Email          string `json:"email"`
+		InviteKey      string `json:"invitekey"`
+		ConversationID string `json:"conversation_id"`
+	}{}
+	// Decode request body
+	if err := json.NewDecoder(r.Body).Decode(previewuser); err != nil {
+		log.Printf("Error decoding request body: %v", err)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.ConversationID == "" {
+		http.Error(w, "Conversation ID is required", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.Email == "" {
+		http.Error(w, "Email is required", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.InviteKey == "" {
+		http.Error(w, "Invite Key is required", http.StatusBadRequest)
+		return
+	}
+
+	var (
+		uuid string
+	)
+
+	queryKey := `
+		SELECT id 
+		FROM preview_invite_keys 
+		WHERE id = $1 AND is_active = true
+	`
+	errFetch := DB.QueryRow(queryKey, previewuser.InviteKey).Scan(&uuid)
+	if errFetch != nil {
+		http.Error(w, "Not a valid Invite Key", http.StatusNotFound)
+		return
+	}
+
+	query := `
+        INSERT INTO preview_conversations (
+            id, email, invite_key, conversation_id, created_at
+        ) VALUES (
+            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP
+        ) RETURNING id`
+
+	var id string
+	err := DB.QueryRow(
+		query,
+		previewuser.Email,
+		previewuser.InviteKey,
+		previewuser.ConversationID,
+	).Scan(&id)
+
+	if err != nil {
+		log.Printf("Error creating preview user conversation: %v", err)
+		http.Error(w, "Failed to create preview user conversation", http.StatusInternalServerError)
+		return
+	}
+
+	// Respond
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":      id,
+		"message": "Preview user Conversation Started",
+	})
+}
+
+// HandleCreatePreviewKey creates a new preview key
+func HandleCreatePreviewKey(w http.ResponseWriter, r *http.Request) {
+	if r.Body == nil {
+		fmt.Println("Empty request body")
+		http.Error(w, "Empty request body", http.StatusBadRequest)
+		return
+	}
+	defer r.Body.Close()
+	previewkey := &struct {
+		Name string `json:"name"`
+	}{}
+	// Decode request body
+	if err := json.NewDecoder(r.Body).Decode(previewkey); err != nil {
+		log.Printf("Error decoding request body: %v", err)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewkey.Name == "" {
+		http.Error(w, "Name is required", http.StatusBadRequest)
+		return
+	}
+
+	query := `
+        INSERT INTO preview_invite_keys (
+            id, name, is_active, created_at
+        ) VALUES (
+            gen_random_uuid(), $1, true, CURRENT_TIMESTAMP
+        ) RETURNING id`
+
+	var id string
+	err := DB.QueryRow(
+		query,
+		previewkey.Name,
+	).Scan(&id)
+
+	if err != nil {
+		log.Printf("Error creating preview invite key: %v", err)
+		http.Error(w, "Failed to create preview invite key", http.StatusInternalServerError)
+		return
+	}
+
+	// Respond
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":      id,
+		"message": "Preview Invite Key created",
+	})
+}
+
 // HandleCreateWaitlist creates a new waitlist entry
 func HandleCreateContact(w http.ResponseWriter, r *http.Request) {
 	var waitlist struct {
