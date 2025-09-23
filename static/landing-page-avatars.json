@@ -75,7 +75,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -86,7 +89,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -301,7 +304,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -312,7 +318,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -527,7 +533,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -538,7 +547,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -753,7 +762,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -764,7 +776,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -979,7 +991,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -990,7 +1005,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -1205,7 +1220,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -1216,7 +1234,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
@@ -1431,7 +1449,10 @@
       },
       "welcome_message": {
         "wait_time": 1,
-        "messages": ["Hi"]
+        "messages": [
+          "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
+          "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
+        ]
       },
       "eye_mask_replacement": false,
       "audio_features_type": "weighted",
@@ -1442,7 +1463,7 @@
         "protocol": {
           "video_codec": "vp9",
           "video_bitrate": 5000000,
-          "simulcast": true
+          "simulcast": false
         },
         "snapshot": {
           "enabled": true,
