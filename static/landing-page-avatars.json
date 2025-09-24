@@ -3,7 +3,7 @@
     {
       "timeout": 240,
       "avatar_id": "gabby",
-      "persona_name": "Lucy",
+      "persona_name": "Lisa",
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
@@ -67,7 +67,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -302,7 +302,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -537,7 +537,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -772,7 +772,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1007,7 +1007,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1242,7 +1242,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
@@ -1477,7 +1477,7 @@
         ]
       },
       "exit_message": {
-        "max_call_duration": 120,
+        "max_call_duration": 180,
         "messages": [
           "We are almost at the end of our call, thank you for your time.",
           "Thank you for your time. We will see you next time."
