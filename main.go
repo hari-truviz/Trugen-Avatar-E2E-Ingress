@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"slices"
 	"strings"
 	"time"
 
@@ -71,6 +72,8 @@ var upgrader = websocket.Upgrader{
 }
 
 func handleConnection(conn *websocket.Conn, rq *CustomTypes.RequestQueue) {
+	// List of allowed avatar ids
+	avatar_ids := [7]string{"gabby", "ali_gfpgan", "chole_gfpgan_rev1", "priya", "sameer", "jack", "alex_rev_1"}
 	for {
 		// Convert bytes[] to string to be unmarshelded and added to indexMap
 		msgType, payload, err := conn.ReadMessage()
@@ -87,22 +90,24 @@ func handleConnection(conn *websocket.Conn, rq *CustomTypes.RequestQueue) {
 		if err != nil {
 			fmt.Println(err)
 		}
-		// Add conversation request to request queue
-		currentPos := rq.Enqueue(CustomTypes.Request{
-			Conn: conn,
-			Req:  convRequest,
-		})
-		// Send acknowledgement message
-		var ackMsg CustomTypes.Acknowledgment = CustomTypes.Acknowledgment{
-			Message:         "new request accepted",
-			CurrentPosition: currentPos,
-			StatusCode:      201,
-		}
-		ack, err := json.Marshal(ackMsg)
-		err = conn.WriteMessage(msgType, ack)
-		if err != nil {
-			fmt.Println(err)
-			return
+		if slices.Contains(avatar_ids[:], convRequest.Input.Avatar.AvatarID) {
+			// Add conversation request to request queue
+			currentPos := rq.Enqueue(CustomTypes.Request{
+				Conn: conn,
+				Req:  convRequest,
+			})
+			// Send acknowledgement message
+			var ackMsg CustomTypes.Acknowledgment = CustomTypes.Acknowledgment{
+				Message:         "new request accepted",
+				CurrentPosition: currentPos,
+				StatusCode:      201,
+			}
+			ack, err := json.Marshal(ackMsg)
+			err = conn.WriteMessage(msgType, ack)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
 		}
 	}
 }
