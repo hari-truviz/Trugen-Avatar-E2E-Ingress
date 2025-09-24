@@ -88,7 +88,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -323,7 +323,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -558,7 +558,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -793,7 +793,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -1028,7 +1028,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -1263,7 +1263,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
@@ -1498,7 +1498,7 @@
         "preemptive_synthesis": false,
         "protocol": {
           "video_codec": "vp9",
-          "video_bitrate": 5000000,
+          "video_bitrate": 1000000,
           "simulcast": false
         },
         "snapshot": {
