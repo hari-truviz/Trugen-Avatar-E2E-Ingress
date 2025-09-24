@@ -153,7 +153,7 @@ func main() {
 	go func() {
 		for range ticker.C {
 			// Check if Infrastructure is ready to accept new requests
-			if Utilities.IsRead() {
+			if rq.Queue.Len() > 0 && Utilities.IsRead() {
 				// Pick the next item from the requestMap and post to runpod
 				req, exist := rq.Dequeue()
 				if exist {
