@@ -155,17 +155,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -390,17 +387,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -625,17 +619,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -860,17 +851,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1095,17 +1083,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1330,17 +1315,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1565,17 +1547,14 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "starting the search for the information."
-            },
-            "on_success": {
-              "message": "I have found the information."
+              "message": "Yeah. let me search web for you."
             },
             "on_delay": {
               "delay": 3,
               "message": "I am still waiting for the information."
             },
             "on_error": {
-              "message": "Failed to search the web for the information."
+              "message": "I couldn't get the information from web."
             }
           }
         }
