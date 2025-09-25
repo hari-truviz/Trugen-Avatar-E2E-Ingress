@@ -22,7 +22,7 @@ import (
 // Handle avatar info route
 func handleAvatarInfo(w http.ResponseWriter, r *http.Request) {
 	avatarID := r.URL.Query().Get("id")
-	userName := r.URL.Query().Get("userName")
+	userName := r.URL.Query().Get("username")
 	// Read landing avatars config json
 	data, err := os.ReadFile("static/landing-page-avatars.json")
 	if err != nil {

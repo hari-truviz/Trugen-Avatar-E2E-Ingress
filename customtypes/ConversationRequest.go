@@ -231,8 +231,10 @@ type RequestConfig struct {
 }
 
 type ToolEventMessages struct {
-	OnDelay *DelayMessage  `json:"on_delay,omitempty"`
-	OnError *SimpleMessage `json:"on_error,omitempty"`
+	OnStart   *SimpleMessage `json:"on_start,omitempty"`
+	OnDelay   *DelayMessage  `json:"on_delay,omitempty"`
+	OnSuccess *SimpleMessage `json:"on_success,omitempty"`
+	OnError   *SimpleMessage `json:"on_error,omitempty"`
 }
 
 type Acknowledgment struct {
