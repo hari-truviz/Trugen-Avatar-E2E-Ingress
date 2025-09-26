@@ -19,8 +19,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -123,7 +123,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -251,8 +251,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -355,7 +355,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -483,8 +483,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -587,7 +587,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -715,8 +715,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -819,7 +819,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -947,8 +947,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -1051,7 +1051,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -1179,8 +1179,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -1283,7 +1283,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
@@ -1411,8 +1411,8 @@
         "includes": "sports related things"
       },
       "interpolation_config": {
-        "enabled": false,
-        "exp": 1
+        "enabled": true,
+        "exp": 2
       },
       "scene_context_engine": {
         "on_snapshot_timeout": 3,
@@ -1515,7 +1515,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": true,
           "reasoning_effort": null
