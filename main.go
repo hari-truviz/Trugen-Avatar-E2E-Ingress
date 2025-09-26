@@ -235,6 +235,41 @@ func main() {
 		}
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
+	mux.HandleFunc("/admn/waitlist", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			DBHelpers.HandleGetWaitlist(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/admn/user", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			DBHelpers.HandleGetDemoUser(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/admn/feedback", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			DBHelpers.HandleGetDemoFeedback(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/admn/contact", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			DBHelpers.HandleGetContact(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+	mux.HandleFunc("/admn/conversation", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			DBHelpers.HandleGetPreviewConversation(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
 
 	fmt.Println("Web Socket Server is running on :8080/ws")
 	handler := cors.AllowAll().Handler(mux)

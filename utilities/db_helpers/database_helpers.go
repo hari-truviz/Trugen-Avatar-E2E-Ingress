@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	_ "github.com/lib/pq" // registers "postgres"
 )
@@ -479,4 +480,214 @@ func HandleCreateContact(w http.ResponseWriter, r *http.Request) {
 		"id":      id,
 		"message": "Contact submitted successfully",
 	})
+}
+
+// HandleGetPreviewConversation retrieves all Preview Conversation from the database
+func HandleGetPreviewConversation(w http.ResponseWriter, r *http.Request) {
+
+	query := `
+        SELECT id, email, invite_key, conversation_id, created_at
+        FROM preview_conversations 
+        ORDER BY created_at DESC;
+    `
+	rows, err := DB.Query(query)
+	if err != nil {
+		log.Printf("Error querying preview conversations: %v", err)
+		http.Error(w, "Failed to retrieve preview conversations", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var apiKeys []map[string]interface{}
+	for rows.Next() {
+		var id, email, conversation_id, invite_key string
+		var createdAt time.Time
+
+		if err := rows.Scan(&id, &email, &invite_key, &conversation_id, &createdAt); err != nil {
+			log.Printf("Error scanning preview conversations row: %v", err)
+			http.Error(w, "Error scanning preview conversations", http.StatusInternalServerError)
+			return
+		}
+
+		apiKeys = append(apiKeys, map[string]interface{}{
+			"id":              id,
+			"invite_key":      invite_key,
+			"email":           email,
+			"conversation_id": conversation_id,
+			"created":         createdAt.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(apiKeys)
+}
+
+// HandleGetWaitlist retrieves all waitlists from the database
+func HandleGetWaitlist(w http.ResponseWriter, r *http.Request) {
+
+	query := `
+        SELECT id, name, email, created_at, COALESCE(company, '') AS company
+        FROM waitlists 
+        ORDER BY created_at DESC;
+    `
+	rows, err := DB.Query(query)
+	if err != nil {
+		log.Printf("Error querying waitlists: %v", err)
+		http.Error(w, "Failed to retrieve waitlists", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var apiKeys []map[string]interface{}
+	for rows.Next() {
+		var id, name, email string
+		var company string
+		var createdAt time.Time
+
+		if err := rows.Scan(&id, &name, &email, &createdAt, &company); err != nil {
+			log.Printf("Error scanning waitlists row: %v", err)
+			http.Error(w, "Error scanning waitlists", http.StatusInternalServerError)
+			return
+		}
+
+		apiKeys = append(apiKeys, map[string]interface{}{
+			"id":      id,
+			"name":    name,
+			"email":   email,
+			"company": company,
+			"created": createdAt.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(apiKeys)
+}
+
+// HandleGetDemoUser retrieves all demo user from the database
+func HandleGetDemoUser(w http.ResponseWriter, r *http.Request) {
+
+	query := `
+        SELECT id, name, email, created_at, COALESCE(invite_key, '') AS invite_key
+        FROM demo_users 
+        ORDER BY created_at DESC;
+    `
+	rows, err := DB.Query(query)
+	if err != nil {
+		log.Printf("Error querying demo users: %v", err)
+		http.Error(w, "Failed to retrieve demo users", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var apiKeys []map[string]interface{}
+	for rows.Next() {
+		var id, name, email string
+		var invite_key string
+		var createdAt time.Time
+
+		if err := rows.Scan(&id, &name, &email, &createdAt, &invite_key); err != nil {
+			log.Printf("Error scanning demo users row: %v", err)
+			http.Error(w, "Error scanning demo users", http.StatusInternalServerError)
+			return
+		}
+
+		apiKeys = append(apiKeys, map[string]interface{}{
+			"id":         id,
+			"name":       name,
+			"invite_key": invite_key,
+			"email":      email,
+			"created":    createdAt.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(apiKeys)
+}
+
+// HandleGetDemoFeedback retrieves all demofeedback from the database
+func HandleGetDemoFeedback(w http.ResponseWriter, r *http.Request) {
+
+	query := `
+        SELECT id, email, feedback, rating, conversation_id, created_at
+		FROM public.demo_feedbacks
+        ORDER BY created_at DESC;
+    `
+	rows, err := DB.Query(query)
+	if err != nil {
+		log.Printf("Error querying demofeedback: %v", err)
+		http.Error(w, "Failed to retrieve demofeedback", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var apiKeys []map[string]interface{}
+	for rows.Next() {
+		var id, email, feedback, conversationid string
+		var rating int
+		var createdAt time.Time
+
+		if err := rows.Scan(&id, &email, &feedback, &rating, &conversationid, &createdAt); err != nil {
+			log.Printf("Error scanning demofeedback row: %v", err)
+			http.Error(w, "Error scanning demofeedback", http.StatusInternalServerError)
+			return
+		}
+
+		apiKeys = append(apiKeys, map[string]interface{}{
+			"id":             id,
+			"email":          email,
+			"feedback":       feedback,
+			"rating":         rating,
+			"conversationid": conversationid,
+			"created":        createdAt.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(apiKeys)
+}
+
+// HandleGetContact retrieves all contact us from the database
+func HandleGetContact(w http.ResponseWriter, r *http.Request) {
+
+	query := `
+        SELECT id, first_name, last_name, email, company, country, intrested_in, get_notify, created_at, description
+		FROM public.contacts
+        ORDER BY created_at DESC;
+    `
+	rows, err := DB.Query(query)
+	if err != nil {
+		log.Printf("Error querying contacts: %v", err)
+		http.Error(w, "Failed to retrieve contacts", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var apiKeys []map[string]interface{}
+	for rows.Next() {
+		var id, first_name, last_name, email, company, country, intrested_in, description string
+		var get_notify bool
+		var createdAt time.Time
+
+		if err := rows.Scan(&id, &first_name, &last_name, &email, &company, &country, &intrested_in, &get_notify, &createdAt, &description); err != nil {
+			log.Printf("Error scanning contacts row: %v", err)
+			http.Error(w, "Error scanning contacts", http.StatusInternalServerError)
+			return
+		}
+
+		apiKeys = append(apiKeys, map[string]interface{}{
+			"id":           id,
+			"first_name":   first_name,
+			"last_name":    last_name,
+			"email":        email,
+			"company":      company,
+			"country":      country,
+			"intrested_in": intrested_in,
+			"get_notify":   get_notify,
+			"description":  description,
+			"created":      createdAt.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(apiKeys)
 }
