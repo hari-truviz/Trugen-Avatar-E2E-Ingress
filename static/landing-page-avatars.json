@@ -122,7 +122,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -351,7 +351,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -580,7 +580,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -809,7 +809,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -1038,7 +1038,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -1267,7 +1267,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
@@ -1496,7 +1496,7 @@
           "provider": "groq",
           "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
           "fallback_model": "gpt-4.1-nano",
-          "use_nltk": true,
+          "use_nltk": false,
           "reasoning_effort": null
         },
         "tts": {
