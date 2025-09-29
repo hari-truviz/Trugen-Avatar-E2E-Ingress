@@ -128,7 +128,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "FGY2WhTYpPnrIDTdsKH5",
           "encoding": "pcm_s16le",
@@ -358,7 +358,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "rFzjTA9NFWPsUdx39OwG",
           "encoding": "pcm_s16le",
@@ -588,7 +588,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "21m00Tcm4TlvDq8ikWAM",
           "encoding": "pcm_s16le",
@@ -818,7 +818,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "ZUrEGyu8GFMwnHbvLhv2",
           "encoding": "pcm_s16le",
@@ -1048,7 +1048,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "bIHbv24MWmeRgasZH58o",
           "encoding": "pcm_s16le",
@@ -1278,7 +1278,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "SV61h9yhBg4i91KIBwdz",
           "encoding": "pcm_s16le",
@@ -1508,7 +1508,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "iP95p4xoKVk53GoZ742B",
           "encoding": "pcm_s16le",
