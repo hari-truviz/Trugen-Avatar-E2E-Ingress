@@ -68,6 +68,7 @@ type LLMPrompts struct {
 	AnalyzeActionsSystemPrompt           string       `json:"analyze_actions_system_prompt"`
 	AnalyzeAction                        string       `json:"analyze_action"`
 	ActionsList                          []ActionItem `json:"actions_list"`
+	AddActionRecognitionQuery            bool         `json:"add_action_recognition_query"`
 	AddActionRecognitionSyntheticUserQry bool         `json:"add_action_recognition_synthetic_user_query"`
 	SyntheticUserQuery                   string       `json:"synthetic_user_query"`
 	UserQueryAnalysisSystemPrompt        string       `json:"user_query_analysis_system_prompt"`
