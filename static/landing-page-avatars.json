@@ -40,7 +40,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -127,7 +128,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "FGY2WhTYpPnrIDTdsKH5",
           "encoding": "pcm_s16le",
@@ -269,7 +270,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -356,7 +358,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "rFzjTA9NFWPsUdx39OwG",
           "encoding": "pcm_s16le",
@@ -498,7 +500,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -585,7 +588,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "21m00Tcm4TlvDq8ikWAM",
           "encoding": "pcm_s16le",
@@ -727,7 +730,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -814,7 +818,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "ZUrEGyu8GFMwnHbvLhv2",
           "encoding": "pcm_s16le",
@@ -956,7 +960,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -1043,7 +1048,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "bIHbv24MWmeRgasZH58o",
           "encoding": "pcm_s16le",
@@ -1185,7 +1190,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -1272,7 +1278,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "SV61h9yhBg4i91KIBwdz",
           "encoding": "pcm_s16le",
@@ -1414,7 +1420,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": true,
+          "add_action_recognition_query": true,
+          "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
@@ -1501,7 +1508,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2_5",
+          "model_id": "eleven_turbo_v2",
           "language": "a",
           "voice_id": "iP95p4xoKVk53GoZ742B",
           "encoding": "pcm_s16le",
