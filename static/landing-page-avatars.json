@@ -40,8 +40,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -269,8 +269,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -498,8 +498,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -727,8 +727,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -956,8 +956,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -1185,8 +1185,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
@@ -1414,8 +1414,8 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
-          "add_action_recognition_synthetic_user_query": false,
-          "synthetic_user_query": "[AUTOMATED ACTION RECOGNITION ANALYSIS]",
+          "add_action_recognition_synthetic_user_query": true,
+          "synthetic_user_query": "What action do you see?",
           "user_query_analysis_system_prompt": "You are a real-time visual analysis assistant that processes webcam snapshots and answer user queries. \n\nNotes: \n- Respond directly by addressing the user as \"you\" in a positive and fun way in a short 1 sentence.\n- Blend the response naturally with the reference of conversation history.\n- Don't mention image/feed. \n- Remember you are in a video call with the User."
         }
       },
