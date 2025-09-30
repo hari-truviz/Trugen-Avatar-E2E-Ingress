@@ -109,14 +109,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -339,14 +339,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -569,14 +569,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -799,14 +799,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -1029,14 +1029,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -1259,14 +1259,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
@@ -1489,14 +1489,14 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "multi",
+          "language": "en",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
-          "min_endpointing_delay": 0.2,
-          "max_endpointing_delay": 0.3,
+          "min_endpointing_delay": 0.5,
+          "max_endpointing_delay": 0.6,
           "final_transcript_timeout": 0.4,
-          "punctuation_reduce_factor": 0.5
+          "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
         "llm": {
