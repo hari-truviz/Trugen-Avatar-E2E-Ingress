@@ -115,7 +115,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -345,7 +345,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -575,7 +575,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -805,7 +805,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -1035,7 +1035,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -1265,7 +1265,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
@@ -1495,7 +1495,7 @@
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
           "max_endpointing_delay": 0.6,
-          "final_transcript_timeout": 0.4,
+          "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
         "turn_detector": true,
