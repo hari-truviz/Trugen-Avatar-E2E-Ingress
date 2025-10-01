@@ -114,7 +114,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -338,7 +338,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -562,7 +562,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -786,7 +786,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -1010,7 +1010,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -1234,7 +1234,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
@@ -1458,7 +1458,7 @@
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
           "min_endpointing_delay": 0.5,
-          "max_endpointing_delay": 0.6,
+          "max_endpointing_delay": 1,
           "final_transcript_timeout": 3,
           "punctuation_reduce_factor": 0.75
         },
