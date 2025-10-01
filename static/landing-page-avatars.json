@@ -65,7 +65,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -295,7 +295,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -525,7 +525,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -755,7 +755,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -985,7 +985,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -1215,7 +1215,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
@@ -1445,7 +1445,7 @@
         "messages": ["Just a heads up! I have a hard stop shortly."]
       },
       "exit_message": {
-        "max_call_duration": 180,
+        "max_call_duration": 600,
         "messages": [
           "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
