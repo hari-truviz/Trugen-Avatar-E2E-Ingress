@@ -47,7 +47,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -277,7 +277,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -507,7 +507,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -737,7 +737,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -967,7 +967,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -1197,7 +1197,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
@@ -1427,7 +1427,7 @@
         }
       },
       "idle_timeout": {
-        "timeout": 600,
+        "timeout": 30,
         "filler_phrases": [
           "Hey it's been a while since we last spoke, are we still connected?",
           "I notice we haven't talked for a bit, is everything okay?",
