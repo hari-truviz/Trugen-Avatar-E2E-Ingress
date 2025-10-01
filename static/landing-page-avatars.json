@@ -153,11 +153,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -185,12 +185,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -216,12 +213,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -383,11 +377,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -415,12 +409,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -446,12 +437,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -613,11 +601,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -645,12 +633,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -676,12 +661,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -843,11 +825,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -875,12 +857,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -906,12 +885,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -1073,11 +1049,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -1105,12 +1081,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -1136,12 +1109,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -1303,11 +1273,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -1335,12 +1305,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -1366,12 +1333,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
@@ -1533,11 +1497,11 @@
           "cache_tools_list": true,
           "event_messages": {
             "on_start": {
-              "message": "Yeah. let me search web for you."
+              "message": "let me search web for you."
             },
             "on_delay": {
-              "delay": 3,
-              "message": "I am still waiting for the information."
+              "delay": 1,
+              "message": "still waiting for the search results."
             },
             "on_error": {
               "message": "I couldn't get the information from web."
@@ -1565,12 +1529,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the weather Information"
@@ -1596,12 +1557,9 @@
             }
           },
           "event_messages": {
-            "on_start": {
-              "message": "Yeah. I am checking..."
-            },
             "on_delay": {
-              "delay": 1,
-              "message": "Still Checking..."
+              "delay": 0.5,
+              "message": "Yeah. I am checking..."
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
