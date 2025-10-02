@@ -21,3 +21,15 @@ type Workers struct {
 	Throttled    int `json:"throttled"`
 	Unhealthy    int `json:"unhealthy"`
 }
+
+type RequestResponse struct {
+	ID     string `json:"id"`
+	Status string `json:"status"`
+}
+
+type JobStatus struct {
+	DelayTime int32  `json:"delayTime"`
+	ID        string `json:"id"`
+	Status    string `json:"Status"`
+	WorkerID  string `json:"workerId"`
+}

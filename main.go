@@ -148,6 +148,7 @@ func main() {
 		log.Fatalf("Failed to ping database: %v", err)
 	}
 
+	var postedJobs map[string]CustomTypes.Request
 	// Start a ticker to check the Runpod if it's ready
 	ticker := time.NewTicker(3 * time.Second)
 	go func() {
@@ -158,12 +159,19 @@ func main() {
 				req, exist := rq.Dequeue()
 				if exist {
 					// Post the request to runpod
-					Utilities.PostJob(req.Req)
+					err, response := Utilities.PostJob(req.Req)
+					if err != nil {
+						fmt.Printf("Unable to post job: %s", err.Error())
+					}
+					fmt.Printf("New job posted with ID: %s and Status: %s\n", response.ID, response.Status)
+					postedJobs[response.ID] = req
 				}
 				fmt.Printf("Number of requests in the queue: %v\n", rq.Queue.Len())
 			}
+			// TODO: Check the status of the posted jobs and notify on error if required
 		}
 	}()
+	// Define Web Server Routes
 	mux := http.NewServeMux()
 	// Register Avatar Info route
 	mux.HandleFunc("GET /avatars/", handleAvatarInfo)
