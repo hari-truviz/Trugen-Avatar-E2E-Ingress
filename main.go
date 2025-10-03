@@ -151,7 +151,7 @@ func main() {
 	}
 
 	// Hashmap to keep track of posted job id and web socket connection to notify
-	postedJobs := make(map[string]CustomTypes.Request)
+	// postedJobs := make(map[string]CustomTypes.Request)
 	// Start a ticker to check the Runpod if it's ready
 	ticker := time.NewTicker(1 * time.Second)
 	go func() {
@@ -167,28 +167,28 @@ func main() {
 						fmt.Printf("Unable to post job: %s", err.Error())
 					}
 					fmt.Printf("New job posted with ID: %s and Status: %s\n", response.ID, response.Status)
-					postedJobs[response.ID] = req
+					// postedJobs[response.ID] = req
 				}
 				fmt.Printf("Number of requests in the queue: %v\n", rq.Queue.Len())
 			}
 			// Check the status of the posted jobs and notify on error if required
-			for id, job := range postedJobs {
-				// Check the status of job in Runpod
-				err, jobStatus := Utilities.GetJobStatus(id)
-				// Drop the item from the map if not IN_QUEUE
-				if err != nil {
-					fmt.Println(err.Error())
-				}
-				// If status is not IN_QUEUE; then delete from Hashmap and notify
-				if jobStatus.Status != "IN_QUEUE" {
-					// Notify status
-					job.Conn.WriteJSON(jobStatus)
-					// Remove from Hashmap
-					delete(postedJobs, id)
-					// Disconnect user
-					job.Conn.Close()
-				}
-			}
+			// for id, job := range postedJobs {
+			// 	// Check the status of job in Runpod
+			// 	err, jobStatus := Utilities.GetJobStatus(id)
+			// 	// Drop the item from the map if not IN_QUEUE
+			// 	if err != nil {
+			// 		fmt.Println(err.Error())
+			// 	}
+			// 	// If status is not IN_QUEUE; then delete from Hashmap and notify
+			// 	if jobStatus.Status != "IN_QUEUE" {
+			// 		// Notify status
+			// 		job.Conn.WriteJSON(jobStatus)
+			// 		// Remove from Hashmap
+			// 		delete(postedJobs, id)
+			// 		// Disconnect user
+			// 		job.Conn.Close()
+			// 	}
+			// }
 		}
 	}()
 	// Define Web Server Routes
