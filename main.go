@@ -148,9 +148,9 @@ func main() {
 		log.Fatalf("Failed to ping database: %v", err)
 	}
 
-	var postedJobs map[string]CustomTypes.Request
+	// var postedJobs map[string]CustomTypes.Request
 	// Start a ticker to check the Runpod if it's ready
-	ticker := time.NewTicker(3 * time.Second)
+	ticker := time.NewTicker(1 * time.Second)
 	go func() {
 		for range ticker.C {
 			// Check if Infrastructure is ready to accept new requests
@@ -164,7 +164,7 @@ func main() {
 						fmt.Printf("Unable to post job: %s", err.Error())
 					}
 					fmt.Printf("New job posted with ID: %s and Status: %s\n", response.ID, response.Status)
-					postedJobs[response.ID] = req
+					// postedJobs[response.ID] = req
 				}
 				fmt.Printf("Number of requests in the queue: %v\n", rq.Queue.Len())
 			}
