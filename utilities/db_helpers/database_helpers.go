@@ -297,6 +297,7 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 		Email          string `json:"email"`
 		InviteKey      string `json:"invitekey"`
 		ConversationID string `json:"conversation_id"`
+		Status         string `json:"status"`
 	}{}
 	// Decode request body
 	if err := json.NewDecoder(r.Body).Decode(previewuser); err != nil {
@@ -340,9 +341,9 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 
 	query := `
         INSERT INTO preview_conversations (
-            id, email, invite_key, conversation_id, created_at
+            id, email, invite_key, conversation_id, created_at, status
         ) VALUES (
-            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP
+            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP, $4
         ) RETURNING id`
 
 	var id string
@@ -351,6 +352,7 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 		previewuser.Email,
 		previewuser.InviteKey,
 		previewuser.ConversationID,
+		previewuser.Status,
 	).Scan(&id)
 
 	if err != nil {
@@ -364,6 +366,57 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{
 		"id":      id,
 		"message": "Preview user Conversation Started",
+	})
+}
+
+// HandleUpdatePreviewConversation updates an existing preview conversation
+func HandleUpdatePreviewConversation(w http.ResponseWriter, r *http.Request) {
+
+	var requestBody struct {
+		ConversationId string          `json:"conversation_id"`
+		RequestId      string          `json:"request_id"`
+		Usage          json.RawMessage `json:"usage"`
+		Status         string          `json:"status"`
+	}
+	convid := &requestBody.ConversationId
+	if err := json.NewDecoder(r.Body).Decode(&requestBody); err != nil {
+		log.Printf("Error decoding request body: %v", err)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	query := `
+        UPDATE preview_conversations
+        SET status = $1,
+            usage = $2,
+            updated_at = CURRENT_TIMESTAMP,
+			requestid = $3
+        WHERE conversation_id = $4
+        RETURNING id`
+
+	var id string
+	err := DB.QueryRow(
+		query,
+		requestBody.Status,
+		requestBody.Usage,
+		requestBody.RequestId,
+		convid,
+	).Scan(&id)
+
+	if err == sql.ErrNoRows {
+		log.Printf("No Conversation found with ID: %s", convid)
+		http.Error(w, "Conversation not found", http.StatusNotFound)
+		return
+	} else if err != nil {
+		log.Printf("Error updating Conversation config: %v", err)
+		http.Error(w, "Failed to update Conversation configuration", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":      id,
+		"message": "Conversation updated successfully",
 	})
 }
 
@@ -486,8 +539,9 @@ func HandleCreateContact(w http.ResponseWriter, r *http.Request) {
 func HandleGetPreviewConversation(w http.ResponseWriter, r *http.Request) {
 
 	query := `
-        SELECT id, email, invite_key, conversation_id, created_at
-        FROM preview_conversations 
+        SELECT DISTINCT c.id, c.email, name, c.invite_key, conversation_id, c.created_at, usage, COALESCE(status, '') AS status, c.updated_at
+        FROM preview_conversations c
+		join public.demo_users u on u.email = c.email
         ORDER BY created_at DESC;
     `
 	rows, err := DB.Query(query)
@@ -500,10 +554,10 @@ func HandleGetPreviewConversation(w http.ResponseWriter, r *http.Request) {
 
 	var apiKeys []map[string]interface{}
 	for rows.Next() {
-		var id, email, conversation_id, invite_key string
-		var createdAt time.Time
+		var id, email, name, conversation_id, invite_key, usage, status string
+		var createdAt, updatedAt time.Time
 
-		if err := rows.Scan(&id, &email, &invite_key, &conversation_id, &createdAt); err != nil {
+		if err := rows.Scan(&id, &email, &name, &invite_key, &conversation_id, &createdAt, &usage, &status, &updatedAt); err != nil {
 			log.Printf("Error scanning preview conversations row: %v", err)
 			http.Error(w, "Error scanning preview conversations", http.StatusInternalServerError)
 			return
@@ -513,8 +567,12 @@ func HandleGetPreviewConversation(w http.ResponseWriter, r *http.Request) {
 			"id":              id,
 			"invite_key":      invite_key,
 			"email":           email,
+			"name":            name,
 			"conversation_id": conversation_id,
+			"usage":           usage,
+			"status":          status,
 			"created":         createdAt.Format("2006-01-02 15:04:05"),
+			"updated":         updatedAt.Format("2006-01-02 15:04:05"),
 		})
 	}
 
@@ -608,8 +666,9 @@ func HandleGetDemoUser(w http.ResponseWriter, r *http.Request) {
 func HandleGetDemoFeedback(w http.ResponseWriter, r *http.Request) {
 
 	query := `
-        SELECT id, email, feedback, rating, conversation_id, created_at
-		FROM public.demo_feedbacks
+        SELECT distinct f.id, f.email, name, feedback, rating, conversation_id, f.created_at
+		FROM public.demo_feedbacks f
+		join public.demo_users u on u.email = f.email
         ORDER BY created_at DESC;
     `
 	rows, err := DB.Query(query)
@@ -622,11 +681,11 @@ func HandleGetDemoFeedback(w http.ResponseWriter, r *http.Request) {
 
 	var apiKeys []map[string]interface{}
 	for rows.Next() {
-		var id, email, feedback, conversationid string
+		var id, email, name, feedback, conversationid string
 		var rating int
 		var createdAt time.Time
 
-		if err := rows.Scan(&id, &email, &feedback, &rating, &conversationid, &createdAt); err != nil {
+		if err := rows.Scan(&id, &email, &name, &feedback, &rating, &conversationid, &createdAt); err != nil {
 			log.Printf("Error scanning demofeedback row: %v", err)
 			http.Error(w, "Error scanning demofeedback", http.StatusInternalServerError)
 			return
@@ -635,6 +694,7 @@ func HandleGetDemoFeedback(w http.ResponseWriter, r *http.Request) {
 		apiKeys = append(apiKeys, map[string]interface{}{
 			"id":             id,
 			"email":          email,
+			"name":           name,
 			"feedback":       feedback,
 			"rating":         rating,
 			"conversationid": conversationid,

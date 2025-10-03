@@ -256,6 +256,13 @@ func main() {
 		}
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
+	mux.HandleFunc("/preview/conversationusage", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleUpdatePreviewConversation(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
 	mux.HandleFunc("/preview/invitekey", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreatePreviewKey(w, r)
