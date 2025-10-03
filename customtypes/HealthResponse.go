@@ -31,5 +31,4 @@ type JobStatus struct {
 	DelayTime int32  `json:"delayTime"`
 	ID        string `json:"id"`
 	Status    string `json:"Status"`
-	WorkerID  string `json:"workerId"`
 }

@@ -74,21 +74,23 @@ var upgrader = websocket.Upgrader{
 func handleConnection(conn *websocket.Conn, rq *CustomTypes.RequestQueue) {
 	// List of allowed avatar ids
 	avatar_ids := [7]string{"gabby", "ali_gfpgan", "chole_gfpgan_rev1", "priya", "sameer", "jack", "alex_rev_1"}
+	defer func() {
+		// Delete client request from the global map
+		rq.RemoveByConnection(conn)
+		conn.Close()
+	}()
 	for {
 		// Convert bytes[] to string to be unmarshelded and added to indexMap
 		msgType, payload, err := conn.ReadMessage()
 		if err != nil {
 			fmt.Println(err)
+			return
 		}
-		defer func() {
-			// Delete client request from the global map
-			rq.RemoveByConnection(conn)
-			conn.Close()
-		}()
 		convRequest := CustomTypes.ConversationRequest{}
 		err = json.Unmarshal(payload, &convRequest)
 		if err != nil {
 			fmt.Println(err)
+			continue
 		}
 		if slices.Contains(avatar_ids[:], convRequest.Input.Avatar.AvatarID) {
 			// Add conversation request to request queue
@@ -148,13 +150,14 @@ func main() {
 		log.Fatalf("Failed to ping database: %v", err)
 	}
 
-	// var postedJobs map[string]CustomTypes.Request
+	// Hashmap to keep track of posted job id and web socket connection to notify
+	postedJobs := make(map[string]CustomTypes.Request)
 	// Start a ticker to check the Runpod if it's ready
 	ticker := time.NewTicker(1 * time.Second)
 	go func() {
 		for range ticker.C {
 			// Check if Infrastructure is ready to accept new requests
-			if rq.Queue.Len() > 0 && Utilities.IsRead() {
+			if rq.Queue.Len() > 0 && Utilities.IsReady() {
 				// Pick the next item from the requestMap and post to runpod
 				req, exist := rq.Dequeue()
 				if exist {
@@ -164,11 +167,28 @@ func main() {
 						fmt.Printf("Unable to post job: %s", err.Error())
 					}
 					fmt.Printf("New job posted with ID: %s and Status: %s\n", response.ID, response.Status)
-					// postedJobs[response.ID] = req
+					postedJobs[response.ID] = req
 				}
 				fmt.Printf("Number of requests in the queue: %v\n", rq.Queue.Len())
 			}
-			// TODO: Check the status of the posted jobs and notify on error if required
+			// Check the status of the posted jobs and notify on error if required
+			for id, job := range postedJobs {
+				// Check the status of job in Runpod
+				err, jobStatus := Utilities.GetJobStatus(id)
+				// Drop the item from the map if not IN_QUEUE
+				if err != nil {
+					fmt.Println(err.Error())
+				}
+				// If status is not IN_QUEUE; then delete from Hashmap and notify
+				if jobStatus.Status != "IN_QUEUE" {
+					// Notify status
+					job.Conn.WriteJSON(jobStatus)
+					// Remove from Hashmap
+					delete(postedJobs, id)
+					// Disconnect user
+					job.Conn.Close()
+				}
+			}
 		}
 	}()
 	// Define Web Server Routes
@@ -185,7 +205,7 @@ func main() {
 	// Register infra health
 	mux.HandleFunc("/infra", func(w http.ResponseWriter, r *http.Request) {
 		var statusCode int = http.StatusServiceUnavailable
-		if Utilities.IsRead() {
+		if Utilities.IsReady() {
 			statusCode = http.StatusOK
 		}
 		w.WriteHeader(statusCode)

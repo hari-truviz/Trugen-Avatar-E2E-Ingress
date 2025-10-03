@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func IsRead() bool {
+func IsReady() bool {
 	client := &http.Client{}
 	URL := "https://api.runpod.ai/v2/" + os.Getenv("RUNPOD_ENDPOINT_ID") + "/health"
 	req, err := http.NewRequest("GET", URL, nil)
@@ -36,4 +36,29 @@ func IsRead() bool {
 		return false
 	}
 	return healthResponse.Workers.Ready > 0
+}
+
+func GetJobStatus(id string) (error, CustomTypes.JobStatus) {
+	client := &http.Client{}
+	URL := "https://api.runpod.ai/v2/" + os.Getenv("RUNPOD_ENDPOINT_ID") + "/status/" + id
+	req, err := http.NewRequest("GET", URL, nil)
+	if err != nil {
+		return err, CustomTypes.JobStatus{}
+	}
+	req.Header.Add("Authorization", "Bearer "+os.Getenv("RUNPOD_API_KEY"))
+	resp, err := client.Do(req)
+	if err != nil {
+		return err, CustomTypes.JobStatus{}
+	}
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err, CustomTypes.JobStatus{}
+	}
+	var jobStatusResponse = &CustomTypes.JobStatus{}
+	err = json.Unmarshal(body, jobStatusResponse)
+	if err != nil {
+		return err, CustomTypes.JobStatus{}
+	}
+	return nil, *jobStatusResponse
 }
