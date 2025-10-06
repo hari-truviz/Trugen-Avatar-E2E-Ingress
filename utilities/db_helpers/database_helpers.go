@@ -38,6 +38,7 @@ func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
 	feedback := &struct {
 		ConversationID string `json:"conversation_id"`
 		Email          string `json:"email"`
+		Name           string `json:"name"`
 		Feedback       string `json:"feedback"`
 		Rating         int    `json:"rating"`
 	}{}
@@ -61,9 +62,9 @@ func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
 
 	query := `
         INSERT INTO demo_feedbacks (
-            id, conversation_id, email, feedback, rating, created_at
+            id, conversation_id, email, feedback, rating, created_at, name
         ) VALUES (
-            gen_random_uuid(), $1, $2, $3, $4, CURRENT_TIMESTAMP
+            gen_random_uuid(), $1, $2, $3, $4, CURRENT_TIMESTAMP, $5
         ) RETURNING id`
 
 	var id string
@@ -73,6 +74,7 @@ func HandleCreateDemoFeedback(w http.ResponseWriter, r *http.Request) {
 		feedback.Email,
 		feedback.Feedback,
 		feedback.Rating,
+		feedback.Name,
 	).Scan(&id)
 
 	if err != nil {
@@ -295,6 +297,7 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	previewuser := &struct {
 		Email          string `json:"email"`
+		Name           string `json:"name"`
 		InviteKey      string `json:"invitekey"`
 		ConversationID string `json:"conversation_id"`
 		Status         string `json:"status"`
@@ -341,9 +344,9 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 
 	query := `
         INSERT INTO preview_conversations (
-            id, email, invite_key, conversation_id, created_at, status
+            id, email, invite_key, conversation_id, created_at, status, name
         ) VALUES (
-            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP, $4
+            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP, $4, $5
         ) RETURNING id`
 
 	var id string
@@ -353,6 +356,7 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 		previewuser.InviteKey,
 		previewuser.ConversationID,
 		previewuser.Status,
+		previewuser.Name,
 	).Scan(&id)
 
 	if err != nil {
@@ -539,9 +543,8 @@ func HandleCreateContact(w http.ResponseWriter, r *http.Request) {
 func HandleGetPreviewConversation(w http.ResponseWriter, r *http.Request) {
 
 	query := `
-        SELECT DISTINCT c.id, c.email, name, c.invite_key, conversation_id, c.created_at, usage, COALESCE(status, '') AS status, c.updated_at
-        FROM preview_conversations c
-		join public.demo_users u on u.email = c.email
+        SELECT DISTINCT id, email, COALESCE(name, '') AS name, invite_key, conversation_id, created_at, usage, COALESCE(status, '') AS status, updated_at
+        FROM preview_conversations
         ORDER BY created_at DESC;
     `
 	rows, err := DB.Query(query)
@@ -666,9 +669,8 @@ func HandleGetDemoUser(w http.ResponseWriter, r *http.Request) {
 func HandleGetDemoFeedback(w http.ResponseWriter, r *http.Request) {
 
 	query := `
-        SELECT distinct f.id, f.email, name, feedback, rating, conversation_id, f.created_at
-		FROM public.demo_feedbacks f
-		join public.demo_users u on u.email = f.email
+        SELECT id, email,  COALESCE(name, '') AS name, feedback, rating, conversation_id, created_at
+		FROM public.demo_feedbacks
         ORDER BY created_at DESC;
     `
 	rows, err := DB.Query(query)
