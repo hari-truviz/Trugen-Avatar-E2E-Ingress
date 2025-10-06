@@ -235,6 +235,14 @@ func main() {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	})
 
+	mux.HandleFunc("/landing/conversation", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			DBHelpers.HandleCreatePreviewConversation_Waitlist(w, r)
+			return
+		}
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+	})
+
 	mux.HandleFunc("/landing/contact", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			DBHelpers.HandleCreateContact(w, r)

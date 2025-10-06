@@ -373,6 +373,70 @@ func HandleCreatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// HandleCreatePreviewConversation_Waitlist creates a new preview user conversation
+func HandleCreatePreviewConversation_Waitlist(w http.ResponseWriter, r *http.Request) {
+	if r.Body == nil {
+		fmt.Println("Empty request body")
+		http.Error(w, "Empty request body", http.StatusBadRequest)
+		return
+	}
+	defer r.Body.Close()
+	previewuser := &struct {
+		Email          string `json:"email"`
+		Name           string `json:"name"`
+		ConversationID string `json:"conversation_id"`
+		Status         string `json:"status"`
+	}{}
+	// Decode request body
+	if err := json.NewDecoder(r.Body).Decode(previewuser); err != nil {
+		log.Printf("Error decoding request body: %v", err)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.ConversationID == "" {
+		http.Error(w, "Conversation ID is required", http.StatusBadRequest)
+		return
+	}
+
+	// Validation
+	if previewuser.Email == "" {
+		http.Error(w, "Email is required", http.StatusBadRequest)
+		return
+	}
+
+	query := `
+        INSERT INTO preview_conversations (
+            id, email, invite_key, conversation_id, created_at, status, name
+        ) VALUES (
+            gen_random_uuid(), $1, $2, $3, CURRENT_TIMESTAMP, $4, $5
+        ) RETURNING id`
+
+	var id string
+	err := DB.QueryRow(
+		query,
+		previewuser.Email,
+		"",
+		previewuser.ConversationID,
+		previewuser.Status,
+		previewuser.Name,
+	).Scan(&id)
+
+	if err != nil {
+		log.Printf("Error creating preview user conversation_waitlist: %v", err)
+		http.Error(w, "Failed to create preview user conversation_waitlist", http.StatusInternalServerError)
+		return
+	}
+
+	// Respond
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"id":      id,
+		"message": "User Conversation Started",
+	})
+}
+
 // HandleUpdatePreviewConversation updates an existing preview conversation
 func HandleUpdatePreviewConversation(w http.ResponseWriter, r *http.Request) {
 
