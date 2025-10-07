@@ -128,7 +128,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "FGY2WhTYpPnrIDTdsKH5",
           "encoding": "pcm_s16le",
@@ -143,28 +143,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -219,6 +198,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -352,7 +364,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "rFzjTA9NFWPsUdx39OwG",
           "encoding": "pcm_s16le",
@@ -367,28 +379,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -443,6 +434,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -576,7 +600,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "21m00Tcm4TlvDq8ikWAM",
           "encoding": "pcm_s16le",
@@ -591,28 +615,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -667,6 +670,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -800,7 +836,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "ZUrEGyu8GFMwnHbvLhv2",
           "encoding": "pcm_s16le",
@@ -815,28 +851,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -891,6 +906,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1024,7 +1072,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "bIHbv24MWmeRgasZH58o",
           "encoding": "pcm_s16le",
@@ -1039,28 +1087,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -1115,6 +1142,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1248,7 +1308,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "SV61h9yhBg4i91KIBwdz",
           "encoding": "pcm_s16le",
@@ -1263,28 +1323,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -1339,6 +1378,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
@@ -1472,7 +1544,7 @@
         },
         "tts": {
           "provider": "elevenlabs",
-          "model_id": "eleven_turbo_v2",
+          "model_id": "eleven_turbo_v2_5",
           "language": "a",
           "voice_id": "iP95p4xoKVk53GoZ742B",
           "encoding": "pcm_s16le",
@@ -1487,28 +1559,7 @@
         }
       },
       "knowledge_base": null,
-      "mcp_servers": [
-        {
-          "type": "sse",
-          "name": "brave_mcp_server",
-          "params": {
-            "url": "http://ec2-18-216-51-35.us-east-2.compute.amazonaws.com:8080/sse"
-          },
-          "cache_tools_list": true,
-          "event_messages": {
-            "on_start": {
-              "message": "let me search web for you."
-            },
-            "on_delay": {
-              "delay": 1,
-              "message": "still waiting for the search results."
-            },
-            "on_error": {
-              "message": "I couldn't get the information from web."
-            }
-          }
-        }
-      ],
+      "mcp_servers": [],
       "tools": [
         {
           "name": "get_weather",
@@ -1563,6 +1614,39 @@
             },
             "on_error": {
               "message": "Ah, I couldn't get the Stock Information"
+            }
+          }
+        },
+        {
+          "name": "search_web",
+          "description": "Called when you have to look up information on the web before answering. This function will return the search results about the user query.",
+          "arguments": [
+            {
+              "name": "query",
+              "type": "str",
+              "description": "query to search the web for"
+            }
+          ],
+          "request_config": {
+            "method": "GET",
+            "url": "https://api.search.brave.com/res/v1/web/search?q={query}",
+            "headers": {
+              "User-Agent": "Trugen Avatar",
+              "Accept": "application/json",
+              "Accept-Encoding": "gzip",
+              "x-subscription-token": "BSApcmWA26kGrErb94TebWBEXixFwqV"
+            }
+          },
+          "event_messages": {
+            "on_start": {
+              "message": "let me search web for you."
+            },
+            "on_delay": {
+              "delay": 1,
+              "message": "still waiting for the search results."
+            },
+            "on_error": {
+              "message": "I couldn't get the information from web."
             }
           }
         }
