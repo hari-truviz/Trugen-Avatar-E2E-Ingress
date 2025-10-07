@@ -79,8 +79,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -315,8 +315,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -551,8 +551,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -787,8 +787,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -1023,8 +1023,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -1259,8 +1259,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
@@ -1495,8 +1495,8 @@
         ]
       },
       "eye_mask_replacement": false,
-      "audio_features_type": "silent_smooth",
-      "audio_features_window_length": 40,
+      "audio_features_type": "weighted",
+      "audio_features_window_length": 10,
       "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
