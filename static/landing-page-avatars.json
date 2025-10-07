@@ -7,7 +7,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -81,7 +81,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -243,7 +243,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -317,7 +317,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -479,7 +479,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -553,7 +553,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -715,7 +715,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -789,7 +789,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -951,7 +951,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -1025,7 +1025,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -1187,7 +1187,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -1261,7 +1261,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
@@ -1423,7 +1423,7 @@
       "avatar_data_source": "avatar-inference-data/",
       "frame_rate": 25,
       "max_message_history": 20,
-      "silence_padding": 0.1,
+      "silence_padding": 0,
       "is_face_enhancer_enabled": false,
       "face_enhancer_model_name": "GFPGANv1.4",
       "face_enhancer_denoise_strength": 0.5,
@@ -1497,7 +1497,7 @@
       "eye_mask_replacement": false,
       "audio_features_type": "silent_smooth",
       "audio_features_window_length": 40,
-      "prev_audio_duration": 150,
+      "prev_audio_duration": 0,
       "config": {
         "preemptive_synthesis": false,
         "protocol": {
