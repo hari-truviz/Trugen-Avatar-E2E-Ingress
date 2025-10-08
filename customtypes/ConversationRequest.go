@@ -12,6 +12,7 @@ type Avatar struct {
 	Timeout                int                 `json:"timeout"`
 	UserID                 string              `json:"user_id"`
 	AgentID                string              `json:"agent_id"`
+	Gender                 string              `json:"gender"`
 	ConversationID         string              `json:"conversation_id"`
 	RoomID                 string              `json:"room_id"`
 	AvatarID               string              `json:"avatar_id"`

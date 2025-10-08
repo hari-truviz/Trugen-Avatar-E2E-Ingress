@@ -35,6 +35,7 @@ func handleAvatarInfo(w http.ResponseWriter, r *http.Request) {
 		if item.AvatarID == avatarID {
 			// Replace <USER_NAME> and <AVATAR_NAME> tags
 			item.PersonaPrompt = strings.ReplaceAll(item.PersonaPrompt, "<USER_NAME>", userName)
+			item.PersonaPrompt = strings.ReplaceAll(item.PersonaPrompt, "<GENDER>", item.Gender)
 			item.PersonaPrompt = strings.ReplaceAll(item.PersonaPrompt, "<AVATAR_NAME>", item.PersonaName)
 			var _messages []string = nil
 			for _, msg := range item.WelcomeMessage.Messages {
