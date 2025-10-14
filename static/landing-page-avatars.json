@@ -41,6 +41,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -278,6 +279,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -515,6 +517,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -752,6 +755,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -989,6 +993,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -1226,6 +1231,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",
@@ -1463,6 +1469,7 @@
               "Action_Needs_To_Be_Observed": "Do you see any new objects in the scene?"
             }
           ],
+          "analyze_action_secondary_validation_prompt": "Analyze the visual analysis, and identify if the \"is_yes\" value is set correctly.\n\n# Analysis:\n<ANALYSIS_RESULT>\n\n# Output format:\n```json\n{\n\"is_yes\": true/false\n}```\n\n\nNote: Only output the json.",
           "add_action_recognition_query": true,
           "add_action_recognition_synthetic_user_query": false,
           "synthetic_user_query": "What action do you see?",

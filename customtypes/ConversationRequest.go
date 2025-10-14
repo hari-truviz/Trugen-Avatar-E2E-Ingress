@@ -63,16 +63,17 @@ type SceneContextEngine struct {
 }
 
 type LLMPrompts struct {
-	GetUserAppearance                    string       `json:"get_user_appearance"`
-	FirstQuery                           string       `json:"first_query"`
-	AnalyzeSceneCtxResponse              string       `json:"analyze_scene_ctx_response"`
-	AnalyzeActionsSystemPrompt           string       `json:"analyze_actions_system_prompt"`
-	AnalyzeAction                        string       `json:"analyze_action"`
-	ActionsList                          []ActionItem `json:"actions_list"`
-	AddActionRecognitionQuery            bool         `json:"add_action_recognition_query"`
-	AddActionRecognitionSyntheticUserQry bool         `json:"add_action_recognition_synthetic_user_query"`
-	SyntheticUserQuery                   string       `json:"synthetic_user_query"`
-	UserQueryAnalysisSystemPrompt        string       `json:"user_query_analysis_system_prompt"`
+	GetUserAppearance                       string       `json:"get_user_appearance"`
+	FirstQuery                              string       `json:"first_query"`
+	AnalyzeSceneCtxResponse                 string       `json:"analyze_scene_ctx_response"`
+	AnalyzeActionsSystemPrompt              string       `json:"analyze_actions_system_prompt"`
+	AnalyzeAction                           string       `json:"analyze_action"`
+	ActionsList                             []ActionItem `json:"actions_list"`
+	AanalyzeActionSecondaryValidationPrompt string       `json:"analyze_action_secondary_validation_prompt"`
+	AddActionRecognitionQuery               bool         `json:"add_action_recognition_query"`
+	AddActionRecognitionSyntheticUserQry    bool         `json:"add_action_recognition_synthetic_user_query"`
+	SyntheticUserQuery                      string       `json:"synthetic_user_query"`
+	UserQueryAnalysisSystemPrompt           string       `json:"user_query_analysis_system_prompt"`
 }
 
 type ActionItem struct {
