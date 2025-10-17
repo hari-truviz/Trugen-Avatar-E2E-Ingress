@@ -28,7 +28,8 @@ type RequestResponse struct {
 }
 
 type JobStatus struct {
-	DelayTime int32  `json:"delayTime"`
-	ID        string `json:"id"`
-	Status    string `json:"Status"`
+	DelayTime      int32  `json:"delayTime"`
+	ID             string `json:"id"`
+	ConversationID string `json:"conversationID"`
+	Status         string `json:"status"`
 }

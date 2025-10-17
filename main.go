@@ -185,6 +185,7 @@ func main() {
 				// If status is not TERMINATED; then delete from Hashmap and notify
 				if jobStatus.Status == "COMPLETED" || jobStatus.Status == "TERMINATED" || jobStatus.Status == "CANCELLED" || jobStatus.Status == "FAILED" {
 					// Notify status
+					jobStatus.ConversationID = job.Req.Input.Avatar.ConversationID
 					job.Conn.WriteJSON(jobStatus)
 					// Remove from Hashmap
 					delete(postedJobs, id)
@@ -192,6 +193,7 @@ func main() {
 					job.Conn.Close()
 				} else {
 					// Post Job Status to connection
+					jobStatus.ConversationID = job.Req.Input.Avatar.ConversationID
 					job.Conn.WriteJSON(jobStatus)
 				}
 			}
