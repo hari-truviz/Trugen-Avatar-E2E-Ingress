@@ -1534,7 +1534,7 @@
         "stt": {
           "provider": "deepgram",
           "model": "nova-3",
-          "language": "en",
+          "language": "multi",
           "fallback_model": "nova-3",
           "interrupt_speech_duration": 0.2,
           "allow_interm_results_interruption": true,
