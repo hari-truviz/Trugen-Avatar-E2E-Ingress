@@ -252,7 +252,7 @@ type AllAvatars struct {
 }
 
 type BaseAvatarInfo struct {
-	AgentID     string `json:"agent_id"`
+	AvatarID    string `json:"avatar_id"`
 	PersonaName string `json:"persona_name"`
 	Role        string `json:"role"`
 }

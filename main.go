@@ -31,7 +31,7 @@ func handleAvatarRoleInfo(w http.ResponseWriter, r *http.Request) {
 	var baseInfos []CustomTypes.BaseAvatarInfo
 	for _, item := range avatars.Avatars {
 		baseInfos = append(baseInfos, CustomTypes.BaseAvatarInfo{
-			AgentID:     item.AgentID,
+			AvatarID:    item.AvatarID,
 			PersonaName: item.PersonaName,
 			Role:        item.Role,
 		})
