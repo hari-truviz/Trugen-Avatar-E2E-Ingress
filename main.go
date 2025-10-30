@@ -19,6 +19,28 @@ import (
 	"github.com/rs/cors"
 )
 
+// Handler avatar role rout
+func handleAvatarRoleInfo(w http.ResponseWriter, r *http.Request) {
+	// Read landing avatars config json
+	data, err := os.ReadFile("static/landing-page-avatars.json")
+	if err != nil {
+		fmt.Println("Unable to read file: %s", err)
+	}
+	var avatars = &CustomTypes.AllAvatars{}
+	json.Unmarshal(data, avatars)
+	var baseInfos []CustomTypes.BaseAvatarInfo
+	for _, item := range avatars.Avatars {
+		baseInfos = append(baseInfos, CustomTypes.BaseAvatarInfo{
+			AgentID:     item.AgentID,
+			PersonaName: item.PersonaName,
+			Role:        item.Role,
+		})
+	}
+	avatarJson, _ := json.Marshal(baseInfos)
+	w.Write(avatarJson)
+	w.WriteHeader(http.StatusOK)
+}
+
 // Handle avatar info route
 func handleAvatarInfo(w http.ResponseWriter, r *http.Request) {
 	avatarID := r.URL.Query().Get("id")
@@ -203,6 +225,8 @@ func main() {
 	mux := http.NewServeMux()
 	// Register Avatar Info route
 	mux.HandleFunc("GET /avatars/", handleAvatarInfo)
+	// Register Avatar Role Info route
+	mux.HandleFunc("GET /avatars", handleAvatarRoleInfo)
 	// Register websocket server
 	mux.HandleFunc("/ws", handleWebSocket)
 	// Register server health endpoint

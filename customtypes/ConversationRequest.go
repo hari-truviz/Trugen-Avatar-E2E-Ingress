@@ -24,6 +24,7 @@ type Avatar struct {
 	FaceEnhancerModelName  string              `json:"face_enhancer_model_name"`
 	FaceEnhancerDenoise    float64             `json:"face_enhancer_denoise_strength"`
 	PersonaName            string              `json:"persona_name"`
+	Role                   string              `json:"role"`
 	PersonaPrompt          string              `json:"persona_prompt"`
 	ConversationalContext  string              `json:"conversational_context"`
 	Memory                 Memory              `json:"memory"`
@@ -248,4 +249,10 @@ type Acknowledgment struct {
 
 type AllAvatars struct {
 	Avatars []Avatar `json:"avatars"`
+}
+
+type BaseAvatarInfo struct {
+	AgentID     string `json:"agent_id"`
+	PersonaName string `json:"persona_name"`
+	Role        string `json:"role"`
 }
