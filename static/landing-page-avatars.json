@@ -264,7 +264,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
@@ -316,7 +316,8 @@
       "welcome_message": {
         "wait_time": 1,
         "messages": [
-          "Hello <USER_NAME>, I’m <AVATAR_NAME> from Support. How can I assist you today?"
+          "Hello <USER_NAME>, I’m <AVATAR_NAME> from Support. How can I assist you today?",
+          "I am <AVATAR_NAME>, I am your customer agent, How can I help you today?"
         ]
       },
       "eye_mask_replacement": false,
@@ -412,7 +413,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
@@ -560,7 +561,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
@@ -708,7 +709,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
@@ -856,7 +857,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
@@ -1004,7 +1005,7 @@
         "exp": 2
       },
       "scene_context_engine": {
-        "on_snapshot_timeout": 3,
+        "on_snapshot_timeout": null,
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
