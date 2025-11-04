@@ -29,8 +29,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": "<USER_QUERY>, also at the end of ONLY this response talk about my outfit, appearance or background setup from user_appearance into the response in a positive way in 1 line.",
+          "get_user_appearance": "Based on the image, describe user's outfit or background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, also at the end of ONLY this response, mention that you can see the user now in 1 line.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -75,7 +75,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hi <USER_NAME>, It's great to meet you. My name is <AVATAR_NAME> by the way. How are you doing?",
           "Hello <USER_NAME>, so nice to meet you! My name is <AVATAR_NAME> by the way. How’s it going?"
@@ -268,8 +268,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -314,7 +314,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, I’m <AVATAR_NAME> from Support. How can I assist you today?",
           "I am <AVATAR_NAME>, I am your customer agent, How can I help you today?"
@@ -417,8 +417,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -463,7 +463,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, my name is <AVATAR_NAME>, your Career Coach today. How are you feeling about your career journey lately?"
         ]
@@ -565,8 +565,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -611,7 +611,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, I’m <AVATAR_NAME>, your Nutrition Coach today. How are you feeling?"
         ]
@@ -713,8 +713,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -759,7 +759,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, I’m <AVATAR_NAME>, your healthcare intake assistant today. I’ll help gather a few details before you see your provider. How are you feeling today?"
         ]
@@ -861,8 +861,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -907,7 +907,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, I’m <AVATAR_NAME> from TruGen. How are you doing today?"
         ]
@@ -1009,8 +1009,8 @@
         "snapshot_scale": 0.6,
         "vision_llm": "qwen2.5vl:7b",
         "llm_prompts": {
-          "get_user_appearance": "Based on the image, talk about user's outfit, appearance or background setup in 1 line. Don't complement the user directly, just describe the details in 1 line..",
-          "first_query": null,
+          "get_user_appearance": "Based on the image, describe user's background setup in 1 line with a maximum of 8 words.",
+          "first_query": "<USER_QUERY>, Also mention that you can see the user now in a formal way.",
           "analyze_scene_ctx_response": "<RESULT_FROM_ANALYZE_SCENE>",
           "analyze_actions_system_prompt": "You are an AI tasked with analyzing visual information (simulated by provided images from a video call) and responding in a specific JSON format.\nYour goal is to populate the JSON output. Certain fields within this JSON should be written *as if* you are super-observant during the video call.\n**Primary Instruction: Generate JSON Output**\nYour entire response MUST be a single JSON object adhering to the \"Output JSON Format\" specified below.\n**Output JSON Format:**\n```json\n{\n    \"questions\": [\n    {\n      \"name\": \"string (Action_name from Action List)\",\n      \"analysis\": \"string\"\n,\n      \"reasoning\": \"a 1 sentence reasoning\"\n,\n      \"is_yes\": \"boolean\",    }\n  ]\n}\n\nContent Guidelines for JSON Fields:\n- questions array:\nThis array will contain objects, one for each Action in the provided \"Action List\".\nFor each Action in the list:\n   - name: The Action_name string from the Action List.\n   - is_yes: Set to true , if the action described in \"Action_Needs_To_Be_Observed\" is observed based on \"analysis_instruction\". \n     (For example, if the \"Action_Needs_To_Be_Observed\": \"Do you see any new objects in the scene?\", then \"new objects\" refers to new physical items appearing or disappearing. Changes in my pose, gestures, expression (like smiling), or minor shifts in positions do NOT count as \"new objects\" for this specific Action. At the same time, strictly even if you see a small new object, it should should be set to true.)\n\tOtherwise, set to false.\n\t  - Mention the exact object name in message, IF is_yes is false, this string MUST be empty (\"\").\n- Process every Action present in the \"Action List\". Do not add any other Action that are not in the list.\n- analysis: This string should contain a small, 2-sentence description.\nIt should describe what you see regarding me (the user) and my immediate surroundings.\nIf two visuals are implicitly compared (e.g., for a \"Scene Change\" Action), mention noticeable changes.",
           "analyze_action": "Analyze the given visuals (simulated by provided images from a video call) for each action and give final output JSON.\n\nInstructions:\nStrictly follow these instructions for each Action in below list.\n- For each Action, check the \"analysis_instruction\" and follow the same to observe the action.\n- If you observe the action in \"Action_Needs_To_Be_Observed\" observed,then in Json output, set the \"is_yes\" to true. Otherwise, is_yes must be false.\n \nAction List:\n<ACTIONS_LIST>",
@@ -1055,7 +1055,7 @@
         ]
       },
       "welcome_message": {
-        "wait_time": 1,
+        "wait_time": 2,
         "messages": [
           "Hello <USER_NAME>, my name is <AVATAR_NAME>. I’ll be taking your interview today. How are you doing?"
         ]
