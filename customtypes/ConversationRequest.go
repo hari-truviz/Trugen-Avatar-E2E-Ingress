@@ -57,7 +57,7 @@ type InterpolationConfig struct {
 }
 
 type SceneContextEngine struct {
-	OnSnapshotTimeout int        `json:"on_snapshot_timeout"`
+	OnSnapshotTimeout *int       `json:"on_snapshot_timeout"`
 	SnapshotScale     float64    `json:"snapshot_scale"`
 	VisionLLM         string     `json:"vision_llm"`
 	LLMPrompts        LLMPrompts `json:"llm_prompts"`
