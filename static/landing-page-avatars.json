@@ -362,7 +362,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
@@ -510,7 +510,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
@@ -658,7 +658,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
@@ -806,7 +806,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
@@ -955,7 +955,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
@@ -1103,7 +1103,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
