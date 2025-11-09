@@ -70,7 +70,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -309,7 +309,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -457,7 +457,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -605,7 +605,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -753,7 +753,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -901,7 +901,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
@@ -1050,7 +1050,7 @@
       "exit_message": {
         "max_call_duration": 180,
         "messages": [
-          "We are almost at the end of our call, It's a pleasure talking you. thank you for your time. See you next time.",
+          "We are almost at the end of our call, It is a pleasure talking with you today. thank you for your time. See you next time.",
           "We're coming to a close here, and I wanted to say how much I valued our conversation today. Until we speak again, take care."
         ]
       },
