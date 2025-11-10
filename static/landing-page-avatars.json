@@ -124,7 +124,7 @@
         "turn_detector": true,
         "llm": {
           "provider": "groq",
-          "model": "moonshotai/kimi-k2-instruct-0905",
+          "model": "meta-llama/llama-4-scout-17b-16e-instruct",
           "fallback_model": "gpt-4.1-nano",
           "use_nltk": false,
           "reasoning_effort": null
